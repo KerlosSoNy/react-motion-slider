@@ -223,3 +223,35 @@ export default App;
 | **getSlideStyle** | `(index, isActive) => CSSProperties` | `-` | Dynamic style function |
 | **renderSlide** | `(slide, index, isActive, realIndex) => ReactNode` | `-` | Custom slide renderer |
 
+## 🎛️ Coverflow Props
+
+| Prop | Type | Default | Description |
+|------|------|----------|-------------|
+| **coverflow** | `boolean` | `false` | Enable coverflow 3D effect |
+| **coverflowOptions.rotate** | `number` | `50` | Rotation angle (degrees) |
+| **coverflowOptions.depth** | `number` | `100` | Z-axis depth (pixels) |
+| **coverflowOptions.stretch** | `number` | `0` | Slide stretch amount |
+| **coverflowOptions.modifier** | `number` | `1` | Effect intensity modifier |
+| **coverflowOptions.slideShadows** | `boolean` | `true` | Enable slide shadows |
+| **coverflowOptions.centerSlideWidth** | `number` | `95` | Center slide width (%) |
+
+
+## 🔁 Auto-Scroll Props
+
+| Prop | Type | Default | Description |
+|------|------|----------|-------------|
+| **autoScroll** | `boolean` | `false` | Enable auto-scrolling |
+| **autoScrollInterval** | `number` | `3000` | Interval between scrolls (ms) |
+| **autoScrollDirection** | `"next"` \| `"prev"` | `"next"` | Auto-scroll direction |
+| **pauseOnHover** | `boolean` | `true` | Pause on mouse hover |
+| **pauseOnFocus** | `boolean` | `true` | Pause on focus |
+
+
+## 🧠 Event Callbacks
+
+| Prop | Type | Description |
+|------|------|-------------|
+| **onSlideChange** | `(index: number) => void` | Called when the active slide changes |
+| **onSlideNext** | `(current: number, next: number) => void` | Called before moving to the next slide |
+| **onSlidePrev** | `(current: number, prev: number) => void` | Called before moving to the previous slide |
+
