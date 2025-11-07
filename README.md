@@ -50,3 +50,27 @@ A powerful, feature-rich React slider/carousel component with stunning 3D effect
 ```bash
 # npm
 git clone <Repo Link>
+
+```
+
+## 🚀 Quick Start
+```bash
+import React from 'react';
+import { Slider } from 'react-motion-slider';
+
+function App() {
+  const slides = [
+    <div>Slide 1</div>,
+    <div>Slide 2</div>,
+    <div>Slide 3</div>,
+  ];
+
+  return (
+    <Slider slidesToShow={3} gap={20} loop>
+      {slides}
+    </Slider>
+  );
+}
+
+export default App;
+```
