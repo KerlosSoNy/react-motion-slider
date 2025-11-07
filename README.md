@@ -255,3 +255,35 @@ export default App;
 | **onSlideNext** | `(current: number, next: number) => void` | Called before moving to the next slide |
 | **onSlidePrev** | `(current: number, prev: number) => void` | Called before moving to the previous slide |
 
+
+## 🎯 Roadmap
+
+- [ ] Vertical slider support  
+- [ ] Thumbnail navigation  
+- [ ] Video slide support  
+- [ ] Lazy loading built-in  
+- [ ] Fade transition effect  
+- [ ] Parallax effect  
+- [ ] Multiple slides per move  
+- [ ] Accessible keyboard shortcuts  
+
+
+---
+
+<p align="center">
+  <a href="#top">↑ back to top</a>
+</p>
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/KerlosSoNy">Kerlos Magdy</a>
+</p>
+
+<p align="center">
+  If this project helped you, please consider giving it a ⭐!
+</p>
+
+<p align="center">
+  <a href="[https://github.com/YourRepo](https://github.com/KerlosSoNy/react-motion-slider)">
+    <img src="https://img.shields.io/github/stars/YourRepo?style=social" alt="GitHub Repo Stars"/>
+  </a>
+</p>
