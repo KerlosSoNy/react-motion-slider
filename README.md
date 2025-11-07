@@ -284,6 +284,6 @@ export default App;
 
 <p align="center">
   <a href="[https://github.com/YourRepo](https://github.com/KerlosSoNy/react-motion-slider)">
-    <img src="https://img.shields.io/github/stars/YourRepo?style=social" alt="GitHub Repo Stars"/>
+    <img src="https://img.shields.io/github/stars/react-motion-slider?style=social" alt="GitHub Repo Stars"/>
   </a>
 </p>
