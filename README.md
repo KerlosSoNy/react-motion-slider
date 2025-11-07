@@ -1,75 +1,52 @@
-# React + TypeScript + Vite
+# 🎠 React Motion Slider
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+[![npm version](https://img.shields.io/npm/v/react-motion-slider.svg?style=flat-square)](https://www.npmjs.com/package/react-motion-slider)
+[![npm downloads](https://img.shields.io/npm/dm/react-motion-slider.svg?style=flat-square)](https://www.npmjs.com/package/react-motion-slider)
+[![license](https://img.shields.io/npm/l/react-motion-slider.svg?style=flat-square)](https://github.com/yourusername/react-motion-slider/blob/main/LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A powerful, feature-rich React slider/carousel component with stunning 3D effects, auto-scroll, responsive breakpoints, and smooth touch gestures. Built with TypeScript and Framer Motion.
 
-## React Compiler
+[Demo](#-demo) • [Installation](#-installation) • [Examples](#-examples) • [API](#-api-reference) • [Contributing](#-contributing)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+</div>
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎯 **TypeScript Support** - Full type safety out of the box
+- 🔄 **Infinite Loop** - Seamless infinite scrolling
+- 🎨 **Coverflow 3D Effect** - Beautiful 3D carousel with customizable depth
+- 📱 **Fully Responsive** - Breakpoint-based configuration for all screen sizes
+- 🤚 **Touch Gestures** - Smooth swipe support with smart scroll detection
+- ⚡ **Auto-Scroll** - Built-in auto-play with pause on hover/focus
+- 🌐 **RTL Support** - Perfect for Arabic, Hebrew, and other RTL languages
+- 🎭 **Custom Animations** - Powered by Framer Motion for smooth transitions
+- 🎨 **Highly Customizable** - Extensive styling and behavior options
+- ♿ **Accessible** - Keyboard navigation and focus management
+- 📦 **Lightweight** - Tree-shakeable and optimized for performance
+- 🔧 **Imperative API** - Control slider programmatically via ref
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📸 Demo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Basic Slider
+![Basic Slider Demo](./demos/basic-slider.gif)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Coverflow Effect
+![Coverflow Demo](./demos/coverflow.gif)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Responsive Breakpoints
+![Responsive Demo](./demos/responsive.gif)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📦 Installation
+
+```bash
+# npm
+git clone <Repo Link>
