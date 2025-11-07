@@ -202,10 +202,24 @@ export default App;
 ## 🎛️ API Reference
 ### Props
 
+## 🧩 API Reference
+
+### Props
+
 | Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `slidesToShow` | `number` | **Required** | Number of slides visible at once |
-| `children` | `React.ReactNode[]` | **Required** | Array of slide elements |
-| `gap` | `number` | `20` | Space between slides (pixels) |
-| `loop` | `boolean` | `false` | Enable infinite loop |
-| `direction` | `"ltr" \| "rtl"` | `"ltr"` | Slider direction |
+|------|------|----------|-------------|
+| **slidesToShow** | `number` | **Required** | Number of slides visible at once |
+| **children** | `React.ReactNode[]` | **Required** | Array of slide elements |
+| **gap** | `number` | `20` | Space between slides (pixels) |
+| **loop** | `boolean` | `false` | Enable infinite loop |
+| **direction** | `"ltr"` \| `"rtl"` | `"ltr"` | Slider direction |
+| **language** | `string` | `"en"` | Language code for localization |
+| **isCenter** | `boolean` | `false` | Center the active slide |
+| **isHidden** | `boolean` | `false` | Hide overflow content |
+| **breakpoints** | `Breakpoints` | `{}` | Responsive breakpoint configuration |
+| **slideClassName** | `string` | `""` | CSS class for slides |
+| **slideStyle** | `React.CSSProperties` | `{}` | Inline styles for slides |
+| **getSlideClassName** | `(index, isActive) => string` | `-` | Dynamic class name function |
+| **getSlideStyle** | `(index, isActive) => CSSProperties` | `-` | Dynamic style function |
+| **renderSlide** | `(slide, index, isActive, realIndex) => ReactNode` | `-` | Custom slide renderer |
+
