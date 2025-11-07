@@ -76,7 +76,7 @@ export default App;
 ```
 
 ## 📚 Examples
-# 1. Basic Slider
+### 1. Basic Slider
 ```bash
 <Slider slidesToShow={3} gap={20}>
   {slides.map((slide, index) => (
@@ -87,14 +87,14 @@ export default App;
 </Slider>
 ```
 
-# 2. Infinite Loop
+### 2. Infinite Loop
 ```bash
 <Slider slidesToShow={3} gap={20} loop>
   {slides}
 </Slider>
 ```
 
-# 3. Auto-Scroll with Pause on Hover
+### 3. Auto-Scroll with Pause on Hover
 ```bash
 <Slider
   slidesToShow={3}
@@ -108,7 +108,7 @@ export default App;
 </Slider>
 ```
 
-# 4. Coverflow 3D Effect
+### 4. Coverflow 3D Effect
 ```bash
 <Slider
   slidesToShow={3}
@@ -128,7 +128,7 @@ export default App;
 </Slider>
 ```
 
-# 5. Responsive Breakpoints
+### 5. Responsive Breakpoints
 ```bash
 <Slider
   slidesToShow={3}
@@ -148,7 +148,7 @@ export default App;
 </Slider>
 ```
 
-# 6. RTL Support
+### 6. RTL Support
 ```bash
 <Slider
   slidesToShow={3}
@@ -162,7 +162,7 @@ export default App;
 ```
 
 ## 🎛️ API Reference
-#Props
+### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
