@@ -188,8 +188,7 @@ export default App;
 │   └── styles/
 │       └── slider.css               # Default styles
 ├── examples/                        # Usage examples
-├── docs/                            # Documentation
-└── tests/                           # Unit and integration tests
+└── docs/                            # Documentation
 ```
 
 ## 🌐 Browser Support
