@@ -74,3 +74,100 @@ function App() {
 
 export default App;
 ```
+
+## 📚 Examples
+# 1. Basic Slider
+```bash
+<Slider slidesToShow={3} gap={20}>
+  {slides.map((slide, index) => (
+    <div key={index} className="slide">
+      {slide}
+    </div>
+  ))}
+</Slider>
+```
+
+# 2. Infinite Loop
+```bash
+<Slider slidesToShow={3} gap={20} loop>
+  {slides}
+</Slider>
+```
+
+# 3. Auto-Scroll with Pause on Hover
+```bash
+<Slider
+  slidesToShow={3}
+  gap={20}
+  loop
+  autoScroll
+  autoScrollInterval={3000}
+  pauseOnHover
+>
+  {slides}
+</Slider>
+```
+
+# 4. Coverflow 3D Effect
+```bash
+<Slider
+  slidesToShow={3}
+  gap={0}
+  loop
+  coverflow
+  coverflowOptions={{
+    rotate: 50,
+    depth: 100,
+    stretch: 0,
+    modifier: 1,
+    slideShadows: true,
+    centerSlideWidth: 60,
+  }}
+>
+  {slides}
+</Slider>
+```
+
+# 5. Responsive Breakpoints
+```bash
+<Slider
+  slidesToShow={3}
+  gap={0}
+  loop
+  coverflow
+  coverflowOptions={{
+    rotate: 50,
+    depth: 100,
+    stretch: 0,
+    modifier: 1,
+    slideShadows: true,
+    centerSlideWidth: 60,
+  }}
+>
+  {slides}
+</Slider>
+```
+
+# 6. RTL Support
+```bash
+<Slider
+  slidesToShow={3}
+  gap={20}
+  direction="rtl"
+  language="ar"
+  loop
+>
+  {arabicSlides}
+</Slider>
+```
+
+## 🎛️ API Reference
+#Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `slidesToShow` | `number` | **Required** | Number of slides visible at once |
+| `children` | `React.ReactNode[]` | **Required** | Array of slide elements |
+| `gap` | `number` | `20` | Space between slides (pixels) |
+| `loop` | `boolean` | `false` | Enable infinite loop |
+| `direction` | `"ltr" \| "rtl"` | `"ltr"` | Slider direction |
