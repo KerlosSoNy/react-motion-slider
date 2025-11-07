@@ -256,6 +256,27 @@ export default App;
 | **onSlidePrev** | `(current: number, prev: number) => void` | Called before moving to the previous slide |
 
 
+## 📜 License
+
+MIT © [Kerlos Magdy](https://github.com/KerlosSoNy)
+
+---
+
+## 🙏 Acknowledgments
+
+- [Framer Motion](https://www.framer.com/motion/) – For awesome animations  
+- [React](https://reactjs.org/) – The best UI library  
+- [TypeScript](https://www.typescriptlang.org/) – For type safety  
+
+---
+
+## 📞 Support
+
+🐛 Issues: [GitHub Issues](https://github.com/KerlosSoNy/react-motion-slider/issues)  
+💬 Discussions: [GitHub Discussions](https://github.com/KerlosSoNy/react-motion-slider/discussions)  
+📧 Email: [Kerlosssony@gmail.com](mailto:Kerlosssony@gmail.com)
+
+
 ## 🎯 Roadmap
 
 - [ ] Vertical slider support  
