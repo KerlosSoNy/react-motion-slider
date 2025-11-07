@@ -2,8 +2,8 @@
 
 <div align="center">
 
-[![npm version](https://img.shields.io/npm/v/react-motion-slider.svg?style=flat-square)](https://www.npmjs.com/package/react-motion-slider)
-[![npm downloads](https://img.shields.io/npm/dm/react-motion-slider.svg?style=flat-square)](https://www.npmjs.com/package/react-motion-slider)
+[![npm version](https://img.shields.io/npm/v/react-motion-slider.svg?style=flat-square)]()
+[![npm downloads](https://img.shields.io/npm/dm/react-motion-slider.svg?style=flat-square)]()
 [![license](https://img.shields.io/npm/l/react-motion-slider.svg?style=flat-square)](https://github.com/yourusername/react-motion-slider/blob/main/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
 
