@@ -163,31 +163,31 @@ export default App;
 
 ## 📁 Project Structure
 ├── src/
-│   ├── slider/
-│   │   ├── index.ts                 # Main exports
-│   │   ├── Slider.tsx               # Main component
-│   │   ├── types.ts                 # TypeScript types
-│   │   ├── constants.ts             # Constants
-│   │   ├── hooks/
-│   │   │   ├── useAutoScroll.ts     # Auto-scroll logic
-│   │   │   ├── useBreakpoints.ts    # Responsive logic
-│   │   │   ├── useSliderNavigation.ts
-│   │   │   ├── useSliderState.ts
-│   │   │   └── useTouchDirection.ts # Touch detection
-│   │   ├── utils/
-│   │   │   ├── calculations.ts      # Math calculations
-│   │   │   ├── coverflow.ts         # 3D effects
-│   │   │   ├── slides.ts            # Slide management
-│   │   │   └── touchDetection.ts    # Touch utilities
-│   │   └── components/
-│   │       ├── SliderTrack.tsx      # Track container
-│   │       ├── SliderControls.tsx   # Navigation UI
-│   │       └── SlideWrapper.tsx     # Slide wrapper
-│   └── styles/
-│       └── slider.css               # Default styles
-├── examples/                        # Usage examples
-├── docs/                           # Documentation
-└── tests/                          # Unit tests
+│ ├── slider/
+│ │ ├── index.ts # Main exports
+│ │ ├── Slider.tsx # Main component
+│ │ ├── types.ts # TypeScript types
+│ │ ├── constants.ts # Constants
+│ │ ├── hooks/
+│ │ │ ├── useAutoScroll.ts # Auto-scroll logic
+│ │ │ ├── useBreakpoints.ts # Responsive logic
+│ │ │ ├── useSliderNavigation.ts
+│ │ │ ├── useSliderState.ts
+│ │ │ └── useTouchDirection.ts # Touch detection
+│ │ ├── utils/
+│ │ │ ├── calculations.ts # Math calculations
+│ │ │ ├── coverflow.ts # 3D effects
+│ │ │ ├── slides.ts # Slide management
+│ │ │ └── touchDetection.ts # Touch utilities
+│ │ └── components/
+│ │ ├── SliderTrack.tsx # Track container
+│ │ ├── SliderControls.tsx # Navigation UI
+│ │ └── SlideWrapper.tsx # Slide wrapper
+│ └── styles/
+│ └── slider.css # Default styles
+├── examples/ # Usage examples
+├── docs/ # Documentation
+└── tests/ # Unit and integration tests
 
 ## 🌐 Browser Support
 ✅ Chrome (latest)
