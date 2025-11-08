@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import type { Breakpoints } from "../types";
+import { Breakpoints } from "../types";
 
 export const useBreakpoints = (
     breakpoints: Breakpoints,

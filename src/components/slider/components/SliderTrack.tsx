@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { motion, type PanInfo } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 import SlideWrapper from "./SlideWrapper";
 import { useTouchDirection } from "../hooks/useTouchDirection";
 
@@ -64,7 +64,6 @@ const SliderTrack: React.FC<SliderTrackProps> = ({
     const trackRef = useRef<HTMLDivElement>(null);
     const { handleTouchStart, handleTouchMove, handleTouchEnd, isScrolling } =
         useTouchDirection();
-    const isDraggingHorizontalRef = useRef(false);
 
     // Handle touch events
     useEffect(() => {
@@ -79,21 +78,14 @@ const SliderTrack: React.FC<SliderTrackProps> = ({
             const shouldPreventDefault = handleTouchMove(e);
 
             if (shouldPreventDefault && !isScrolling()) {
-                // Horizontal drag detected - prevent default and allow slider drag
                 e.preventDefault();
-                isDraggingHorizontalRef.current = true;
-            } else if (isScrolling()) {
-                // Vertical scroll detected - allow normal scroll
-                isDraggingHorizontalRef.current = false;
             }
         };
 
         const onTouchEnd = () => {
             handleTouchEnd();
-            isDraggingHorizontalRef.current = false;
         };
 
-        // Use passive: false to allow preventDefault
         trackElement.addEventListener("touchstart", onTouchStart, { passive: true });
         trackElement.addEventListener("touchmove", onTouchMove, { passive: false });
         trackElement.addEventListener("touchend", onTouchEnd, { passive: true });
@@ -105,13 +97,16 @@ const SliderTrack: React.FC<SliderTrackProps> = ({
         };
     }, [handleTouchStart, handleTouchMove, handleTouchEnd, isScrolling]);
 
-    const handleDragStartWrapper = () => {
+
+
+
+    const handleDragStartWrapper = (event: any, info: PanInfo) => {
         if (!isScrolling()) {
             onDragStart();
         }
     };
 
-    const handleDragWrapper = () => {
+    const handleDragWrapper = (event: any, info: PanInfo) => {
         if (isScrolling()) {
             return;
         }
@@ -123,7 +118,6 @@ const SliderTrack: React.FC<SliderTrackProps> = ({
         }
         handleTouchEnd();
     };
-
     return (
         <motion.div
             ref={trackRef}
@@ -131,9 +125,8 @@ const SliderTrack: React.FC<SliderTrackProps> = ({
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={loop ? 0.2 : 0.1}
             dragTransition={{ power: 0.2, timeConstant: 200 }}
-            dragListener={!isScrolling()} // Disable drag listener when scrolling vertically
+            dragListener={!isScrolling()}
             onDragStart={handleDragStartWrapper}
-            onDrag={handleDragWrapper}
             onDragEnd={handleDragEndWrapper}
             whileDrag={{ cursor: "grabbing" }}
             style={{
@@ -143,7 +136,7 @@ const SliderTrack: React.FC<SliderTrackProps> = ({
                 userSelect: "none",
                 padding: containerPadding,
                 gap: coverflow ? 0 : `${responsiveGap}px`,
-                touchAction: "pan-y", // Allow vertical panning
+                touchAction: "pan-y",
             }}
         >
             <motion.div
@@ -158,9 +151,10 @@ const SliderTrack: React.FC<SliderTrackProps> = ({
                 }}
                 style={{
                     display: "flex",
-                    flexDirection: direction === "rtl" ? "row-reverse" : "row",
+                    // KEY FIX: Use row-reverse for RTL to reverse slide order
+                    flexDirection: "row",
                     width: "fit-content",
-                    touchAction: "pan-y", // Allow vertical panning
+                    touchAction: "pan-y",
                     alignItems: "center",
                     gap: coverflow ? 0 : `${responsiveGap}px`,
                     ...(coverflow

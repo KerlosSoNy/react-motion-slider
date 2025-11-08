@@ -1,4 +1,4 @@
-import type { CoverflowOptions } from "../types";
+import { CoverflowOptions } from "../types";
 
 export const getCoverflowSlideWidth = (
     index: number,

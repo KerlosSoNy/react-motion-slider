@@ -1,24 +1,58 @@
-.no-select image {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-    -webkit-user-drag: none; /* Safari */
-    -khtml-user-drag: none; /* Konqueror HTML */
-    -moz-user-drag: none; /* Firefox */
-    -o-user-drag: none; /* Opera */
-    user-drag: none;
-    pointer-events: none; /* Prevent any pointer events */
+.no-select {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
+
 .no-select img {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-    -webkit-user-drag: none; /* Safari */
-    -khtml-user-drag: none; /* Konqueror HTML */
-    -moz-user-drag: none; /* Firefox */
-    -o-user-drag: none; /* Opera */
-    user-drag: none;
-    pointer-events: none; /* Prevent any pointer events */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlay layer */
+.no-select::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* translucent overlay */
+  z-index: 1;
+}
+
+/* Content layout on top of the image */
+.no-select .overlay-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
+  pointer-events: auto; /* make overlay clickable */
+}
+
+.slider-container[dir="rtl"] {
+    direction: rtl;
+}
+
+/* RTL Slide Content */
+[dir="rtl"] .slider-slide {
+    direction: rtl;
+}
+
+[dir="rtl"] .slider-slide * {
+    text-align: right;
 }

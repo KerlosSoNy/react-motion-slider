@@ -41,16 +41,8 @@ export const getRealIndexForIndex = (
 ): number => {
     if (!loop) return Math.max(0, Math.min(index, maxIndex));
 
-    if (totalSlides === 0) return 0;
-
-    // Fixed: Properly handle modulo for both positive and negative numbers
     let realIdx = index % totalSlides;
-    
-    // If negative, wrap around to positive
-    if (realIdx < 0) {
-        realIdx = totalSlides + realIdx;
-    }
-    
+    if (realIdx < 0) realIdx += totalSlides;
     return realIdx;
 };
 
@@ -92,6 +84,8 @@ export const getTransformX = (
     coverflowOptions: { centerSlideWidth?: number },
     totalSlides: number
 ): number | string => {
+    // Remove direction parameter - handle RTL differently
+    
     if (coverflow) {
         if (!containerWidth) return 0;
 

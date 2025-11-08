@@ -1,6 +1,7 @@
-import './styling/slider.css'
-import { useEffect, useImperativeHandle, forwardRef } from "react";
-import { motion, type PanInfo } from "framer-motion";
+'use client'
+import React, { useEffect, useImperativeHandle, forwardRef } from "react";
+import { motion, PanInfo } from "framer-motion";
+import { SliderProps, SliderRef } from "./types";
 import { DEFAULT_COVERFLOW_OPTIONS, DRAG_THRESHOLD, VELOCITY_THRESHOLD } from "./constants";
 import { useSliderState, useLoopReset } from "./hooks/useSliderState";
 import { useBreakpoints } from "./hooks/useBreakpoints";
@@ -22,7 +23,6 @@ import {
 import { getClonedSlides, getCloneCount } from "./utils/slides";
 import SliderTrack from "./components/SliderTrack";
 import SliderControls from "./components/SliderControls";
-import type { SliderProps, SliderRef } from "./types";
 
 const Slider = forwardRef<SliderRef, SliderProps>(
     (
@@ -179,7 +179,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(
         );
 
         // Calculate transform
-        const transformX = getTransformX(
+        let transformX = getTransformX(
             coverflow,
             containerWidth,
             currentIndex,
@@ -194,6 +194,15 @@ const Slider = forwardRef<SliderRef, SliderProps>(
             mergedCoverflowOptions,
             totalSlides
         );
+
+        if (direction === "rtl") {
+            if (typeof transformX === "number") {
+                transformX = -transformX;
+            } else {
+                const value = parseFloat(String(transformX));
+                transformX = `${-value}%`;
+            }
+        }
 
         // Get container padding
         const containerPadding = getContainerPadding(
@@ -303,13 +312,13 @@ const Slider = forwardRef<SliderRef, SliderProps>(
                 ref={containerRef}
                 key={`${language}-${direction}-${responsiveSlidesToShow}`}
                 dir={direction}
+                className='no-select'
                 style={{
                     width: "100%",
                     overflow: isHidden ? "hidden" : "unset",
                     position: "relative",
                     touchAction: "pan-y pinch-zoom",
                 }}
-                className='no-select'
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onFocus={handleFocus}
