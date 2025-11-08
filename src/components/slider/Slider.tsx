@@ -57,7 +57,8 @@ const Slider = forwardRef<SliderRef, SliderProps>(
         },
         ref
     ) => {
-        const totalSlides = children.length;
+        const childrenArray = React.Children.toArray(children);
+        const totalSlides = childrenArray.length;
 
         // Merge coverflow options with defaults
         const mergedCoverflowOptions = {
@@ -80,6 +81,9 @@ const Slider = forwardRef<SliderRef, SliderProps>(
             isFocused,
             setIsFocused,
         } = useSliderState();
+
+
+
 
         const { currentSlidesToShow, currentGap, containerWidth, containerRef } =
             useBreakpoints(breakpoints, slidesToShow, gap);
@@ -110,7 +114,6 @@ const Slider = forwardRef<SliderRef, SliderProps>(
             children,
             loop,
             adjustedSlidesToShow,
-            totalSlides
         );
 
         const cloneCount = getCloneCount(loop, adjustedSlidesToShow, totalSlides);
@@ -140,6 +143,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(
             onSlideNext,
             onSlidePrev,
             onSlideChange,
+            totalSlides,
         });
 
         // Autoscroll hook

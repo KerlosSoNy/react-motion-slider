@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 
 interface UseSliderNavigationProps {
     currentIndex: number;
@@ -12,6 +11,7 @@ interface UseSliderNavigationProps {
     onSlideNext?: (currentIndex: number, nextIndex: number) => void;
     onSlidePrev?: (currentIndex: number, prevIndex: number) => void;
     onSlideChange?: (index: number) => void;
+    totalSlides: number;
 }
 
 export const useSliderNavigation = ({
@@ -26,6 +26,7 @@ export const useSliderNavigation = ({
     onSlideNext,
     onSlidePrev,
     onSlideChange,
+    totalSlides,
 }: UseSliderNavigationProps) => {
     const nextSlide = () => {
         if (!loop && currentIndex >= maxIndex) return;
@@ -92,15 +93,17 @@ export const useSliderNavigation = ({
         }
     };
 
-    const getPrevButtonDisabled = () => {
-        if (loop) return false;
-        return direction === "rtl" ? currentIndex >= maxIndex : currentIndex <= 0;
-    };
+const getPrevButtonDisabled = () => {
+    if (totalSlides <= 1) return true; // ADD THIS
+    if (loop) return false;
+    return direction === "rtl" ? currentIndex >= maxIndex : currentIndex <= 0;
+};
 
-    const getNextButtonDisabled = () => {
-        if (loop) return false;
-        return direction === "rtl" ? currentIndex <= 0 : currentIndex >= maxIndex;
-    };
+const getNextButtonDisabled = () => {
+    if (totalSlides <= 1) return true; // ADD THIS
+    if (loop) return false;
+    return direction === "rtl" ? currentIndex <= 0 : currentIndex >= maxIndex;
+};
 
     return {
         nextSlide,

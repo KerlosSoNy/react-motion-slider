@@ -20,7 +20,7 @@ export interface CoverflowOptions {
 
 export interface SliderProps {
     slidesToShow: number;
-    children: React.ReactNode[];
+    children: React.ReactNode[] | React.ReactNode;
     direction?: "ltr" | "rtl";
     loop?: boolean;
     language?: string;

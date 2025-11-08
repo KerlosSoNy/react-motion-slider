@@ -1,19 +1,24 @@
 import React from "react";
 
 export const getClonedSlides = (
-    children: React.ReactNode[],
+    children: React.ReactNode[] | React.ReactNode,
     loop: boolean,
     adjustedSlidesToShow: number,
-    totalSlides: number
 ): React.ReactNode[] => {
-    if (!loop || totalSlides === 0) return children;
+    // IMPORTANT: Convert to array to handle single child
+    const childrenArray = React.Children.toArray(children);
+    
+    if (!loop || childrenArray.length === 0) {
+        return childrenArray;
+    }
 
     const slides: React.ReactNode[] = [];
-    const clonesCount = Math.max(adjustedSlidesToShow * 2, totalSlides);
+    const clonesCount = Math.max(adjustedSlidesToShow * 2, childrenArray.length);
 
     // Clone start
     for (let i = 0; i < clonesCount; i++) {
-        const child = children[(totalSlides - (clonesCount - i)) % totalSlides];
+        const childIndex = (childrenArray.length - (clonesCount - i)) % childrenArray.length;
+        const child = childrenArray[childIndex];
         if (child && React.isValidElement(child)) {
             slides.push(
                 React.cloneElement(child, {
@@ -24,7 +29,7 @@ export const getClonedSlides = (
     }
 
     // Original slides
-    children.forEach((child, index) => {
+    childrenArray.forEach((child, index) => {
         if (child && React.isValidElement(child)) {
             slides.push(
                 React.cloneElement(child, {
@@ -36,7 +41,7 @@ export const getClonedSlides = (
 
     // Clone end
     for (let i = 0; i < clonesCount; i++) {
-        const child = children[i % totalSlides];
+        const child = childrenArray[i % childrenArray.length];
         if (child && React.isValidElement(child)) {
             slides.push(
                 React.cloneElement(child, {
