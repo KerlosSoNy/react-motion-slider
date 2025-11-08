@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useImperativeHandle, forwardRef } from "react";
-import { motion, PanInfo } from "framer-motion";
-import { SliderProps, SliderRef } from "./types";
+import { motion, type PanInfo } from "framer-motion";
+import { type SliderProps, type SliderRef } from "./types";
 import { DEFAULT_COVERFLOW_OPTIONS, DRAG_THRESHOLD, VELOCITY_THRESHOLD } from "./constants";
 import { useSliderState, useLoopReset } from "./hooks/useSliderState";
 import { useBreakpoints } from "./hooks/useBreakpoints";
@@ -23,7 +23,7 @@ import {
 import { getClonedSlides, getCloneCount } from "./utils/slides";
 import SliderTrack from "./components/SliderTrack";
 import SliderControls from "./components/SliderControls";
-
+import './styling/slider.css'
 const Slider = forwardRef<SliderRef, SliderProps>(
     (
         {
