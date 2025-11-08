@@ -1,4 +1,3 @@
-'use client'
 import React, { useEffect, useImperativeHandle, forwardRef } from "react";
 import { motion, type PanInfo } from "framer-motion";
 import { type SliderProps, type SliderRef } from "./types";
@@ -23,7 +22,8 @@ import {
 import { getClonedSlides, getCloneCount } from "./utils/slides";
 import SliderTrack from "./components/SliderTrack";
 import SliderControls from "./components/SliderControls";
-import './styling/slider.css'
+import './styling/slider.css';
+
 const Slider = forwardRef<SliderRef, SliderProps>(
     (
         {
