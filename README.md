@@ -48,7 +48,6 @@ A powerful, feature-rich React slider/carousel component with stunning 3D effect
 ## 📦 Installation
 
 ```bash
-# npm
 git clone <Repo Link>
 
 ```
