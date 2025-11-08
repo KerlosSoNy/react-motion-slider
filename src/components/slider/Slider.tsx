@@ -157,6 +157,7 @@ const Slider = forwardRef<SliderRef, SliderProps>(
                 currentIndex,
                 maxIndex,
                 loop,
+                direction,
             });
 
         // Loop reset effect

@@ -13,6 +13,7 @@ interface UseAutoScrollProps {
     currentIndex: number;
     maxIndex: number;
     loop: boolean;
+    direction: "ltr" | "rtl"; 
 }
 
 export const useAutoScroll = ({
@@ -28,6 +29,7 @@ export const useAutoScroll = ({
     currentIndex,
     maxIndex,
     loop,
+    direction,
 }: UseAutoScrollProps) => {
     const [isAutoScrolling, setIsAutoScrolling] = useState(autoScroll);
     const autoScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -59,13 +61,16 @@ export const useAutoScroll = ({
             (pauseOnHover && isHovered) || (pauseOnFocus && isFocused);
         if (shouldPause) return;
 
-        const scroll = () => {
-            if (autoScrollDirection === "next") {
-                handleNext();
-            } else {
-                handlePrev();
-            }
-        };
+const scroll = () => {
+    // RTL FIX: Reverse direction for RTL mode
+    const shouldReverse = direction === "rtl";
+    
+    if (autoScrollDirection === "next") {
+        shouldReverse ? handlePrev() : handleNext();
+    } else {
+        shouldReverse ? handleNext() : handlePrev();
+    }
+};
 
         autoScrollTimeoutRef.current = setTimeout(scroll, autoScrollInterval);
 
@@ -85,6 +90,7 @@ export const useAutoScroll = ({
         currentIndex,
         maxIndex,
         loop,
+        direction,
         handleNext,
         handlePrev,
     ]);
