@@ -4,7 +4,8 @@
   overflow: hidden;
 }
 
-.no-select img {
+.no-select img,
+.no-select Image {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -20,16 +21,15 @@
   display: block;
 }
 
-/* Overlay layer */
+
 .no-select::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* translucent overlay */
   z-index: 1;
+  pointer-events: none;
 }
 
-/* Content layout on top of the image */
 .no-select .overlay-content {
   position: absolute;
   inset: 0;
@@ -41,18 +41,18 @@
   font-weight: 600;
   font-size: 1.2rem;
   text-align: center;
-  pointer-events: auto; /* make overlay clickable */
+  pointer-events: auto;
+  touch-action: pan-y pan-x; 
+  cursor: grab;
 }
 
+/* RTL Support */
 .slider-container[dir="rtl"] {
-    direction: rtl;
+  direction: rtl;
 }
-
-/* RTL Slide Content */
 [dir="rtl"] .slider-slide {
-    direction: rtl;
+  direction: rtl;
 }
-
 [dir="rtl"] .slider-slide * {
-    text-align: right;
+  text-align: right;
 }
