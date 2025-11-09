@@ -1,4 +1,4 @@
-import { CoverflowOptions } from "./types";
+import type { CoverflowOptions } from "./types";
 
 export const DEFAULT_COVERFLOW_OPTIONS: Required<CoverflowOptions> = {
     rotate: 50,

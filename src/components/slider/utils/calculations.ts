@@ -84,8 +84,6 @@ export const getTransformX = (
     coverflowOptions: { centerSlideWidth?: number },
     totalSlides: number
 ): number | string => {
-    // Remove direction parameter - handle RTL differently
-    
     if (coverflow) {
         if (!containerWidth) return 0;
 
@@ -120,23 +118,22 @@ export const getTransformX = (
 
     if (typeof slideWidth === "number") {
         let totalMoveDistance;
+        const activeIndex = loop ? currentIndex + cloneCount : currentIndex;
 
+        // Calculate base movement
         if (loop) {
             totalMoveDistance =
-                (currentIndex + cloneCount) * slideWidth +
-                (currentIndex + cloneCount) * responsiveGap;
+                activeIndex * slideWidth + activeIndex * responsiveGap;
         } else {
             const boundedIndex = Math.min(currentIndex, maxIndex);
             totalMoveDistance =
                 boundedIndex * slideWidth + boundedIndex * responsiveGap;
         }
 
-        if (isCenter && !loop) {
-            const centerOffset =
-                (containerWidth -
-                    adjustedSlidesToShow * slideWidth -
-                    (adjustedSlidesToShow - 1) * responsiveGap) /
-                2;
+        // Apply center offset
+        if (isCenter) {
+            // Center the active slide in the viewport
+            const centerOffset = (containerWidth - slideWidth) / 2;
             totalMoveDistance -= centerOffset;
         }
 
@@ -151,15 +148,15 @@ export const getTransformX = (
             transform = -Math.min(currentIndex, maxIndex) * slideWidthPercentage;
         }
 
-        if (isCenter && !loop) {
-            const centerOffset =
-                (100 - adjustedSlidesToShow * slideWidthPercentage) / 2;
+        if (isCenter) {
+            const centerOffset = (100 - slideWidthPercentage) / 2;
             transform += centerOffset;
         }
 
         return transform;
     }
 };
+
 
 export const getContainerPadding = (
     coverflow: boolean,
